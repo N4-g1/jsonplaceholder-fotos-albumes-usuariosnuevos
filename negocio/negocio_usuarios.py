@@ -65,3 +65,12 @@ def eliminar_usuario_db(id_usuario):
         print(f"[{CodigoRespuesta.NO_CONTENIDO}] {obtener_mensaje(CodigoRespuesta.NO_CONTENIDO)} - Usuario {id_usuario} eliminado")
     else:
         print(f"[{CodigoRespuesta.NO_ENCONTRADO}] {obtener_mensaje(CodigoRespuesta.NO_ENCONTRADO)} - Usuario ID {id_usuario}")
+
+def iniciar_sesion(correo, contrasena):
+    usuario = sesion.query(Usuario).filter_by(correo=correo).first()
+    if usuario and verificar_contrasena(contrasena, usuario.contrasena_hash):
+        print(f"[{CodigoRespuesta.OK}] {obtener_mensaje(CodigoRespuesta.OK)} - Inicio de sesión exitoso para {usuario.nombre}")
+        return usuario
+    else:
+        print(f"[{CodigoRespuesta.NO_AUTORIZADO}] {obtener_mensaje(CodigoRespuesta.NO_AUTORIZADO)} - Credenciales inválidas")
+        return None    

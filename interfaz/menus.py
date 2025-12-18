@@ -37,9 +37,10 @@ def menú_usuarios():
     print("2. Crear Usuario")
     print("3. Actualizar Usuario")
     print("4. Eliminar Usuario")
-    print("5. Volver al Menú Principal")
+    print("5. Iniciar Sesión")
+    print("6. Volver al Menú Principal")
     elección = input("Seleccione una opción: ")
     return elección
-        
+
 
 
