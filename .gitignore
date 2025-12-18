@@ -15,7 +15,7 @@ ENV/
 *.sqlite3
 
 
-auxiliares/api_data.py
+
 
 .vscode/
 .idea/
